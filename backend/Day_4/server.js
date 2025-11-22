@@ -36,6 +36,21 @@ server.delete('/notes/:index',(req,res)=>{
   })
 })
 
+// PATCH /notes/:index => {title}
+
+server.patch("/notes/:index",(req,res)=>{
+  const index = req.params.index
+
+  const {title} = req.body
+
+  notes[index].title = title
+
+  res.json({
+    message:"note updated successfully",
+  })
+})
+
+
 
 server.listen(3000, () => {
   console.log(`Server is running on port 3000`);
